@@ -63,7 +63,7 @@
     }
 
     .hero {
-      min-height: 100svh;
+      min-height: 92svh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -83,10 +83,27 @@
 
     .hero h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(4.2rem, 11vw, 9rem);
-      line-height: 0.86;
+      font-size: clamp(5.2rem, 13vw, 10.5rem);
+      line-height: 0.78;
       font-weight: 300;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.11em;
+      color: var(--wine);
+      text-shadow: 0 10px 35px rgba(90, 15, 36, 0.12);
+    }
+
+    .hero h1::before,
+    .hero h1::after {
+      content: "";
+      display: block;
+      width: 86px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 26px;
+      opacity: 0.85;
+    }
+
+    .hero h1::after {
+      margin: 28px auto 0;
     }
 
     .hero h1 span {
@@ -211,6 +228,26 @@
       font-size: 0.95rem;
       color: var(--muted);
       line-height: 1.6;
+    }
+
+    .parking-detail {
+      margin-top: 54px;
+      text-align: center;
+      padding-top: 42px;
+      border-top: 1px solid rgba(201, 169, 110, 0.35);
+    }
+
+    .parking-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--wine);
+      font-size: 1.4rem;
+      font-weight: 500;
     }
 
     .button {
@@ -367,7 +404,7 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero__eyebrow">Celebración</div>
+        <div class="hero__eyebrow">Celebración · Vino · Encuentro</div>
         <h1>
           <span>MIS 50</span>
           <span>HUGO</span>
@@ -399,8 +436,6 @@
         <img class="celebrando-photo" src="hugo.jpg" alt="Hugo brindando" />
       </div>
     </section>
-
-    <div class="divider" aria-label="Imagen decorativa de uvas"></div>
 
     <section class="section cream">
       <div class="container">
@@ -441,7 +476,8 @@
       </div>
     </section>
 
-    <div style="margin-top:54px; text-align:center;">
+    <div class="parking-detail">
+          <div class="parking-icon">Ⓟ</div>
           <div class="detail__label">Estacionamiento</div>
           <div class="detail__value">Privado dentro del salón</div>
           <div class="detail__small">Ingreso por callejón continuo al salón.</div>
@@ -470,4 +506,3 @@
   <footer class="footer">#MIS50HUGO · Una noche para brindar</footer>
 </body>
 </html>
-
