@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIS 50 HUGO</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --cream: #f7f3ec;
+      --gold: #c9a96e;
+      --wine: #5a1f2b;
+      --muted: #6f6a64;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .section {
+      padding: 108px 24px;
+      text-align: center;
+    }
+
+    .container {
+      width: min(900px, 100%);
+      margin: 0 auto;
+    }
+
+    .serif {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--white);
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url("https://img.freepik.com/free-photo/beautiful-shot-large-agricultural-field-countryside-with-hills-amazing-cloudy-sky_181624-39345.jpg") center center / cover no-repeat;
+    }
+
+    .hero__eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(4.2rem, 11vw, 9rem);
+      line-height: 0.86;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero__phrase {
+      max-width: 690px;
+      margin: 38px auto 0;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.9;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .hero__invite {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 5vw, 4.1rem);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 30px;
+    }
+
+    .text {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 1.03rem;
+      line-height: 2;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .cream {
+      background: var(--cream);
+    }
+
+    .dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .dark .text {
+      color: rgba(255,255,255,0.78);
+    }
+
+    .highlight {
+      padding: 122px 24px;
+    }
+
+    .highlight .title {
+      max-width: 850px;
+      margin: 0 auto;
+      color: var(--white);
+    }
+
+    .divider {
+      min-height: 430px;
+      background:
+        linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.22)),
+        url("https://i.pinimg.com/236x/57/d1/73/57d1734a88ed15fcd959f2e081000e2a.jpg") center center / cover no-repeat;
+    }
+
+    .details {
+      display: grid;
+      gap: 44px;
+      margin-top: 54px;
+    }
+
+    .detail__label {
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .detail__value {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.85rem, 4vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    .detail__small {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
+      min-width: 190px;
+      padding: 15px 30px;
+      border: 1px solid var(--gold);
+      color: var(--white);
+      background: transparent;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    .button:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .button--light {
+      color: var(--black);
+      border-color: var(--black);
+    }
+
+    .button--light:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .gift-box {
+      margin: 50px auto 0;
+      width: min(640px, 100%);
+      padding: 42px 28px;
+      border: 1px solid rgba(201,169,110,0.5);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .gift-box p {
+      line-height: 1.9;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .account {
+      margin-top: 28px;
+      display: grid;
+      gap: 10px;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .account strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .footer {
+      padding: 38px 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: #080808;
+      color: rgba(255,255,255,0.6);
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 76px 20px;
+      }
+
+      .hero {
+        min-height: 100svh;
+        background-position: center center;
+      }
+
+      .hero__eyebrow {
+        font-size: 0.68rem;
+        letter-spacing: 0.3em;
+        margin-bottom: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.4rem, 18vw, 5.2rem);
+        letter-spacing: 0.05em;
+      }
+
+      .hero__phrase {
+        margin-top: 30px;
+        font-size: 0.98rem;
+        line-height: 1.75;
+      }
+
+      .hero__invite {
+        font-size: 0.78rem;
+        letter-spacing: 0.14em;
+      }
+
+      .title {
+        font-size: clamp(2.15rem, 11vw, 3.1rem);
+      }
+
+      .text {
+        font-size: 0.96rem;
+        line-height: 1.85;
+      }
+
+      .highlight {
+        padding: 86px 20px;
+      }
+
+      .divider {
+        min-height: 260px;
+      }
+
+      .details {
+        gap: 36px;
+      }
+
+      .detail__value {
+        font-size: 2rem;
+      }
+
+      .gift-box {
+        padding: 34px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero__eyebrow">Celebración</div>
+        <h1>
+          <span>MIS 50</span>
+          <span>HUGO</span>
+        </h1>
+        <p class="hero__phrase">
+          La vida se disfruta mejor como el vino: despacio y en buena compañía.
+        </p>
+        <p class="hero__invite">Te invito a festejar mi cumpleaños</p>
+      </div>
+    </section>
+
+    <section class="section cream">
+      <div class="container">
+        <h2 class="title">Brindando a la Vida</h2>
+        <p class="text">
+          Cincuenta años de vida traen consigo recuerdos, encuentros y experiencias que merecen ser celebradas. Momentos simples y otros inolvidables, todos formando parte de un camino que hoy vale la pena compartir con quienes estuvieron cerca.
+        </p>
+      </div>
+    </section>
+
+    <section class="section dark highlight">
+      <div class="container">
+        <h2 class="title">Celebrando</h2>
+        <p class="text">
+          Una noche para compartir, para reencontrarnos y disfrutar de esos momentos simples que, con la gente indicada, se vuelven inolvidables.
+        </p>
+      </div>
+    </section>
+
+    <div class="divider" aria-label="Imagen decorativa de uvas"></div>
+
+    <section class="section cream">
+      <div class="container">
+        <h2 class="title">Detalles del Evento</h2>
+
+        <div class="details">
+          <div>
+            <div class="detail__label">Fecha</div>
+            <div class="detail__value">Sábado 13 de Junio</div>
+          </div>
+
+          <div>
+            <div class="detail__label">Hora</div>
+            <div class="detail__value">21:00 HS</div>
+          </div>
+
+          <div>
+            <div class="detail__label">Salón El Naggar</div>
+            <div class="detail__value">Roque Sáenz Peña 2160</div>
+            <div class="detail__small">Luján de Cuyo</div>
+            <a class="button button--light" href="https://maps.google.com/?q=Salon+EL+NAGGAR" target="_blank" rel="noopener">Ver mapa</a>
+          </div>
+
+          <div>
+            <div class="detail__label">Dress Code</div>
+            <div class="detail__value">Elegante Sport</div>
+            <div class="detail__small">No gala</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <h2 class="title">Confirmar Asistencia</h2>
+        <p class="text">Espero contar con tu presencia.</p>
+        <a class="button" href="https://wa.me/5492616464015?text=Hola%2C%20confirmo%20mi%20asistencia:%0A%0ANombre%20y%20apellido:%0ACantidad%20de%20personas:%0A%C2%BFAsiste%3F%20S%C3%AD%20/%20No%0A%C2%BFMen%C3%BA%20vegetariano%3F%20S%C3%AD%20/%20No" target="_blank" rel="noopener">Confirma Aquí</a>
+      </div>
+    </section>
+
+    <section class="section cream">
+      <div class="container">
+        <h2 class="title">Estacionamiento</h2>
+        <p class="text">Ingreso por callejón continuo al salón.</p>
+      </div>
+    </section>
+
+    <section class="section dark">
+      <div class="container">
+        <h2 class="title">Regalos</h2>
+        <div class="gift-box">
+          <p>
+            Compartir esta celebración con ustedes ya hace especial la noche.
+            <br />
+            Y si desean acompañar con un regalo, este es el alias:
+          </p>
+
+          <div class="account">
+            <div><strong>ALIAS:</strong> LUPA.REAL.JARDIN</div>
+            <div><strong>CBU:</strong> 0150522101000134535000</div>
+            <div><strong>NOMBRE:</strong> HUGO MARCOS DONOSO</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">#MIS50HUGO</footer>
+</body>
+</html>
